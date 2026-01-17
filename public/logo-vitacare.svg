@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <defs>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="leafGradient2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#81C784"/>
+      <stop offset="100%" style="stop-color:#4CAF50"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Heart-shaped leaves logo -->
+  <g transform="translate(5, 5)">
+    <!-- Left leaf (darker) -->
+    <path d="M20 35 Q5 20 20 5 Q25 15 20 35" fill="url(#leafGradient)"/>
+    <!-- Right leaf (lighter) -->
+    <path d="M20 35 Q35 20 20 5 Q15 15 20 35" fill="url(#leafGradient2)"/>
+    <!-- Center vein -->
+    <path d="M20 8 L20 32" stroke="#1B5E20" stroke-width="1" fill="none" opacity="0.3"/>
+  </g>
+  
+  <!-- VitaCare text -->
+  <text x="50" y="32" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+    <tspan fill="#2E7D32">Vita</tspan><tspan fill="#4CAF50">Care</tspan>
+  </text>
+</svg>

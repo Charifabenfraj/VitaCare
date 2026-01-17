@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F9F8F6;
+  --background-secondary: #D9CFC7;
+  --card-bg: #B6AE9F;
+  --primary: #96A78D;
+  --accent: #B6CEB4;
+  --text-dark: #2d2d2d;
+  --text-medium: #4a4a4a;
+  --text-light: #6a6a6a;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground: var(--text-dark);
+  --font-sans: var(--font-poppins);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-dark);
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7d9175;
+}
+
+/* Custom selection */
+::selection {
+  background: var(--accent);
+  color: var(--text-dark);
+}
+
+/* Form styles */
+input, textarea, select {
+  @apply w-full px-4 py-3 rounded-lg border border-[#D9CFC7] bg-white focus:outline-none focus:ring-2 focus:ring-[#96A78D] focus:border-transparent transition-all duration-300;
+}
+
+input::placeholder, textarea::placeholder {
+  @apply text-[#9a9a9a];
+}
+
+/* Button base */
+.btn {
+  @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-md;
+}
+
+.btn-primary {
+  @apply bg-[#96A78D] text-white hover:bg-[#7d9175];
+}
+
+.btn-secondary {
+  @apply bg-[#D9CFC7] text-[#4a4a4a] hover:bg-[#c9bfb7];
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-8 h-8 border-4 border-[#D9CFC7] border-t-[#96A78D] rounded-full animate-spin;
+}
+
+/* Animation classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* GSAP-related utilities */
+.bg-gradient-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+/* Smooth animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.3; filter: blur(20px); }
+  50% { opacity: 0.6; filter: blur(30px); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Delay utilities for animations */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Grid responsive */
+.product-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.category-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
 }
